@@ -14,7 +14,10 @@ class FasilitasController extends Controller
      */
     public function index()
     {
-        //
+        $fasilitas = Fasilitas::latest()->paginate(5);
+    
+        return view('fasilitas.index',compact('fasilitas'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +27,7 @@ class FasilitasController extends Controller
      */
     public function create()
     {
-        //
+        return view('fasilitas.create');
     }
 
     /**
@@ -35,7 +38,15 @@ class FasilitasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'nama_fasilitas' => 'required',
+        'keterangan' => 'required',
+        ]);
+
+        Fasilitas::create($request->all());
+     
+        return redirect()->route('fasilitas.index')
+                        ->with('success','Berhasil Menyimpan !');
     }
 
     /**
@@ -57,7 +68,7 @@ class FasilitasController extends Controller
      */
     public function edit(Fasilitas $fasilitas)
     {
-        //
+        return view('fasilitas.edit',compact('fasilitas'));
     }
 
     /**
@@ -69,7 +80,15 @@ class FasilitasController extends Controller
      */
     public function update(Request $request, Fasilitas $fasilitas)
     {
-        //
+        $request->validate([
+            'nama_fasilitas' => 'required',
+            'keterangan' => 'required',
+        ]);
+
+        $fasilitas->update($request->all());
+    
+        return redirect()->route('fasilitas.index')
+                        ->with('success','Berhasil Update !');
     }
 
     /**
@@ -80,6 +99,9 @@ class FasilitasController extends Controller
      */
     public function destroy(Fasilitas $fasilitas)
     {
-        //
+        $fasilitas->delete();
+     
+        return redirect()->route('fasilitas.index')
+                        ->with('success','Berhasil Hapus !');
     }
 }

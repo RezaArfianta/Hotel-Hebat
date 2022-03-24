@@ -39,7 +39,7 @@
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('fasilitas.index') }}">Admin</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#">Receptionist</a></li>
                                 </ul>
                             </li> 
