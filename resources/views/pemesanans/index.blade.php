@@ -4,10 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Data Fasilitas</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('fasilitas.create') }}"> Create</a>
+                <h2>Data Pemesan</h2>
             </div>
         </div>
     </div>
@@ -21,19 +18,21 @@
     <table class="table table-bordered">
         <tr>
             <th>No.</th>
-            <th>Nama Fasilitas</th>
-            <th>Keterangan</th>
+            <th>Nama Tamu</th>
+            <th>Tgl CheckIn</th>
+            <th>Tgl CheckOut</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($fasilitas as $fasilitas)
+        @foreach ($pemesanans as $pemesanan)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $fasilitas->nama_fasilitas }}</td>
-            <td>{{ $fasilitas->keterangan }}</td>
+            <td>{{ $pemesanan->nama_tamu }}</td>
+            <td>{{ $pemesanan->tgl_checkin }}</td>
+            <td>{{ $pemesanan->tgl_checkout }}</td>
+
             <td>
-                <form action="{{ route('fasilitas.destroy',$fasilitas->id) }}" method="POST">
+                <form action="{{ route('pemesanans.destroy', $pemesanan->id) }}" method="POST">
            
-                    <a class="btn btn-primary" href="{{ route('fasilitas.edit',$fasilitas->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')
@@ -45,6 +44,6 @@
         @endforeach
     </table>
     
-    {!! $fasilitas->links() !!}
+    {!! $pemesanans->links() !!}
         
 @endsection

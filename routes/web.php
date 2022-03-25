@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\FasilitasController;
+use App\http\Controllers\FasilitasController;
+use App\http\Controllers\KamarController;
+use App\http\Controllers\PemesananController;
+use App\http\Controllers\FasilitasUmumController;
+use App\http\Controllers\BuktiController;
+
+
 
 
 /*
@@ -19,5 +25,9 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::resource('fasilitas', FasilitasController::class);
+Route::resource('fasilitass', FasilitasController::class);
+Route::resource('kamars', KamarController::class);
+Route::resource('pemesanans', PemesananController::class);
+Route::resource('fasilitasumums', FasilitasUmumController::class);
+Route::resource('buktis', BuktiController::class);
 

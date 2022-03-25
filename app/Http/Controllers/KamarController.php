@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Fasilitas;
+use App\Models\Kamar;
 use Illuminate\Http\Request;
 
-class FasilitasController extends Controller
+class KamarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class FasilitasController extends Controller
      */
     public function index()
     {
-        $fasilitass = Fasilitas::latest()->paginate(10);
-        return view('fasilitass.index',compact('fasilitass'))
+        $kamars = Kamar::latest()->paginate(10);
+        return view('kamars.index',compact('kamars'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
@@ -26,7 +26,7 @@ class FasilitasController extends Controller
      */
     public function create()
     {
-        return view('fasilitass.create');
+        return view('kamars.create');
     }
 
     /**
@@ -38,23 +38,23 @@ class FasilitasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'nama_fasilitas' => 'required',
-        'keterangan' => 'required',
+            'tipe_kamar' => 'required',
+            'jumlah_kamar' => 'required',
         ]);
 
-        Fasilitas::create($request->all());
+        Kamar::create($request->all());
      
-        return redirect()->route('fasilitass.index')
+        return redirect()->route('kamars.index')
                         ->with('success','Berhasil Menyimpan !');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Fasilitas  $fasilitas
+     * @param  \App\Models\Kamar  $kamar
      * @return \Illuminate\Http\Response
      */
-    public function show(Fasilitas $fasilitas)
+    public function show(Kamar $kamar)
     {
         //
     }
@@ -62,45 +62,45 @@ class FasilitasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Fasilitas  $fasilitas
+     * @param  \App\Models\Kamar  $kamar
      * @return \Illuminate\Http\Response
      */
-    public function edit(Fasilitas $fasilitas)
+    public function edit(Kamar $kamar)
     {
-        return view('fasilitass.edit',compact('fasilitas'));
+        return view('kamars.edit',compact('kamar'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Fasilitas  $fasilitas
+     * @param  \App\Models\Kamar  $kamar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fasilitas $fasilitas)
+    public function update(Request $request, Kamar $kamar)
     {
         $request->validate([
-            'nama_fasilitas' => 'required',
-            'keterangan' => 'required',
+            'tipe_kamar' => 'required',
+            'jumlah_kamar' => 'required',
         ]);
 
-        $fasilitas->update($request->all());
-    
-        return redirect()->route('fasilitass.index')
-                        ->with('success','Berhasil Update !');
+        $kamar->update($request->all());
+
+        return redirect()->route('kamars.index')
+        ->with('success','Berhasil Update !');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Fasilitas  $fasilitas
+     * @param  \App\Models\Kamar  $kamar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fasilitas $fasilitas)
+    public function destroy(Kamar $kamar)
     {
-        $fasilitas->delete();
+        $kamar->delete();
      
-        return redirect()->route('fasilitass.index')
+        return redirect()->route('kamars.index')
                         ->with('success','Berhasil Hapus !');
     }
 }

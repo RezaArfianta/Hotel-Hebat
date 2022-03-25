@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Attendance</title>
+  <title>Hotel Hebat</title>
 
   <!-- Custom fonts for this template-->
   <link href="assets/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
         <div class="sidebar-brand-text mx-3">Hotel Info</div>
       </a>
 
@@ -48,19 +48,20 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Data
+        Admin
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Data Dasar</span>
+          <span>Data Hotel</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ url('fasilitas') }}">Data Fasilitas</a>
-           
+            <a class="collapse-item" href="{{ url('kamars') }}">Kamar</a>
+            <a class="collapse-item" href="{{ url('fasilitass') }}">Fasilitas</a>
+            <a class="collapse-item" href="{{ url('fasilitasumums') }}">Fasilitas Umum</a>           
           </div>
         </div>
       </li>
@@ -70,17 +71,18 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Register
+        Resepsionis
       </div>
 
        <!-- Nav Item - Register -->
        <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse"    data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Register</span>
+                    <span>Reservasi</span>
                 </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ url('pemesanans') }}">Pemesan</a>
           </div>
         </div>
       </li>

@@ -39,8 +39,8 @@
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('fasilitas.index') }}">Admin</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Receptionist</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('kamars.index') }}">Admin</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('pemesanans.index') }}">Receptionist</a></li>
                                 </ul>
                             </li> 
                         </ul>
@@ -226,19 +226,16 @@
                     <div class="col-md-6 d_flex align-items-center">
                         <div class="about_content ">
                             <h2 class="title title_color">Form Pemesanan</h2>
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                <input type='text' id='nama_pemesanan' name="" class="form-control" placeholder="Nama Pemesan"/>
-                                <input type='text' id='email' name ="" class="form-control" placeholder="Email"/>
-                                <input type='text' id='no_hp' name ="" class="form-control" placeholder="No. Handphone"/>
-                                <input type='text' id='nama_tamu' name ="" class="form-control" placeholder="Nama Tamu"/>
-                                <select class="input-group">
-                                    <option data-display="Tipe Kamar">Room Type</option>
-                                    <option name="1">Double Deluxe</option>
-                                    <option name="2">Single Deluxe</option>
-                                    <option name="3">Honeymoon Suit</option>
-                                    <option name="4">Economy Double</option>
-                                </select>
-                                <input type='number' id='jumlah_tamu' name ="" class="form-control" placeholder="Jumlah Kamar"/>
+                            <form action="{{ route('pemesanans.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type='text' name="nama_pemesan" class="form-control" placeholder="Nama Pemesan"/>
+                                <input type='text' name="email" class="form-control" placeholder="Email"/>
+                                <input type='text' name="no_hp" class="form-control" placeholder="No. Handphone"/>
+                                <input type='text' name="nama_tamu" class="form-control" placeholder="Nama Tamu"/>
+                                <input type='text' name="tipe_kamar" class="form-control" placeholder="Tipe Kamar"/>
+                                <input type='text' name="jumlah_kamar" class="form-control" placeholder="Jumlah Kamar"/> 
+                                <input type='date' name="tgl_checkin" class="form-control" placheholder="Waktu CheckIn"/>
+                                <input type='date' name="tgl_checkout" class="form-control" placheholder="Waktu CheckOut"/>
                                 <button type="submit" class="form-control">Konfirmasi Pemesanan</button>  
                             </form>
                         </div>
