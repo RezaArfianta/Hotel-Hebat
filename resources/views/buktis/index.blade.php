@@ -74,7 +74,7 @@
                             <td width="150px">{{ $bukti->tgl_checkout }}</td>
                         </table>
                         <br></br>
-        <a class="btn btn-primary" href="{{ url('/') }}" style="margin-right:10px;">Continue</a>
+        <a class="btn btn-primary" href="{{ url('home') }}" style="margin-right:10px;">Continue</a>
         @endforeach
 </body>
 </html>
