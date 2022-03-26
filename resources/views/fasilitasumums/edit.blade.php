@@ -30,7 +30,7 @@
         </div>
     @endif
         
-    <form action="{{ route('fasilitasumums.update',$fasilitasumum->id) }}" method="POST" enctype="multipart/form-data"> 
+    <form action="{{ route('fasilitasumums.update', $fasilitasumum->id) }}" method="POST" enctype="multipart/form-data"> 
         @csrf
 
         @method('PUT')
@@ -38,13 +38,13 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Tipe Kamar</strong>
+                    <strong>Nama Fasilitas Umum</strong>
                     <input type="text" name="nama_umum" class="form-control" placeholder="Nama" value="{{$fasilitasumum->nama_umum}}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Jumlah</strong>
+                    <strong>Keterangan</strong>
                     <input type="text" name="ket" class="form-control" placeholder="Ket" value="{{$fasilitasumum->ket}}">
                 </div>
             </div>

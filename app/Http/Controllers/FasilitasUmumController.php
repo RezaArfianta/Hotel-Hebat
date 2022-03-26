@@ -27,7 +27,7 @@ class FasilitasUmumController extends Controller
      */
     public function create()
     {
-        //
+        return view('fasilitasumums.create');
     }
 
     /**
@@ -38,7 +38,15 @@ class FasilitasUmumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_umum' => 'required',
+            'ket' => 'required',
+        ]);
+
+        FasilitasUmum::create($request->all());
+     
+        return redirect()->route('fasilitasumums.index')
+                        ->with('success','Berhasil Menyimpan !');
     }
 
     /**
@@ -47,7 +55,7 @@ class FasilitasUmumController extends Controller
      * @param  \App\Models\FasilitasUmum  $fasilitasUmum
      * @return \Illuminate\Http\Response
      */
-    public function show(FasilitasUmum $fasilitasUmum)
+    public function show(FasilitasUmum $fasilitasumum)
     {
         //
     }
@@ -58,9 +66,9 @@ class FasilitasUmumController extends Controller
      * @param  \App\Models\FasilitasUmum  $fasilitasUmum
      * @return \Illuminate\Http\Response
      */
-    public function edit(FasilitasUmum $fasilitasUmum)
+    public function edit(FasilitasUmum $fasilitasumum)
     {
-        //
+        return view('fasilitasumums.edit',compact('fasilitasumum'));
     }
 
     /**
@@ -70,9 +78,17 @@ class FasilitasUmumController extends Controller
      * @param  \App\Models\FasilitasUmum  $fasilitasUmum
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FasilitasUmum $fasilitasUmum)
+    public function update(Request $request, FasilitasUmum $fasilitasumum)
     {
-        //
+        $request->validate([
+            'nama_umum' => 'required',
+            'ket' => 'required',
+        ]);
+
+        $fasilitasumum->update($request->all());
+
+        return redirect()->route('fasilitasumums.index')
+        ->with('success','Berhasil Update !');
     }
 
     /**
@@ -81,8 +97,11 @@ class FasilitasUmumController extends Controller
      * @param  \App\Models\FasilitasUmum  $fasilitasUmum
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FasilitasUmum $fasilitasUmum)
+    public function destroy(FasilitasUmum $fasilitasumum)
     {
-        //
+        $fasilitasumum->delete();
+     
+        return redirect()->route('fasilitasumums.index')
+                        ->with('success','Berhasil Hapus !');
     }
 }

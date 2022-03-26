@@ -37,14 +37,14 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Tipe Kamar</strong>
-                    <input type="text" name="tipe_kamar" class="form-control" placeholder="Tipe">
+                    <strong>Nama Fasilitas Umum</strong>
+                    <input type="text" name="nama_umum" class="form-control" placeholder="Tipe">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Jumlah</strong>
-                    <input type="text" name="jumlah_kamar" class="form-control" placeholder="Jumlah">
+                    <strong>Keterangan</strong>
+                    <input type="text" name="ket" class="form-control" placeholder="Jumlah">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
