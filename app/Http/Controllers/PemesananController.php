@@ -116,4 +116,18 @@ class PemesananController extends Controller
         return redirect()->route('pemesanans.index')
                         ->with('success','Berhasil Hapus !');
     }
+
+    public function search(Request $request, Pemesanan $pemesanan)
+    {
+        $keyword = $request->searchpemesanans;
+        $pemesanans = Pemesanan::where('nama_tamu', 'like', "%" . $keyword . "%")->paginate(10);
+        return view('pemesanans.index', compact('pemesanans'))->with('i', (request()->input('page', 1) - 1) * 10);
+    }
+
+    /**public function filter(Request $request, Pemesanan $pemesanan)
+    {
+        $keyword = $request->filterpemesanan;
+        $pemesanans = Reservasi::where('tgl_checkin', 'like', "%" . $keyword . "%")->paginate(10);
+        return view('pemesanans.index', compact('pemesanans'))->with('i', (request()->input('page', 1) - 1) * 10);
+    }*/
 }

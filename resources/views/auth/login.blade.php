@@ -1,3 +1,15 @@
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="/assets/ui/css/bootstrap.css">
+        <link rel="stylesheet" href="/assets/ui/vendors/linericon/style.css">
+        <link rel="stylesheet" href="/assets/ui/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/ui/vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/ui/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="/assets/ui/vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="/assets/ui/vendors/owl-carousel/owl.carousel.min.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="/assets/ui/css/style.css">
+        <link rel="stylesheet" href="/assets/ui/css/responsive.css">
+        
 @extends('layouts.app')
 
 @section('content')

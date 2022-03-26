@@ -25,13 +25,16 @@ use App\http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('utama', function() {
-    return view('landing');
+Route::get('admin', function() {
+    return view('admin');
 });
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+Route::get('pemesanans/searchpemesanans', [PemesananController::class, 'search'])->name('searchpemesanans');
+
 
 Route::resource('fasilitass', FasilitasController::class);
 Route::resource('kamars', KamarController::class);

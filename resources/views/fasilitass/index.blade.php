@@ -29,7 +29,7 @@
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $fasilitas->nama_fasilitas }}</td>
-            <td>{{ $fasilitas->keterangan }}</td>
+            <td>{{ $fasilitas->nama_fasilitas }}</td>
             <td>
                 <form action="{{ route('fasilitass.destroy', $fasilitas->id) }}" method="POST">
            

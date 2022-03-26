@@ -38,8 +38,8 @@ class FasilitasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'nama_fasilitas' => 'required',
-        'keterangan' => 'required',
+            'nama_fasilitas' => 'required',
+            'keterangan' => 'required',
         ]);
 
         Fasilitas::create($request->all());
@@ -85,9 +85,9 @@ class FasilitasController extends Controller
         ]);
 
         $fasilitas->update($request->all());
-    
+
         return redirect()->route('fasilitass.index')
-                        ->with('success','Berhasil Update !');
+        ->with('success','Berhasil Update !');
     }
 
     /**
